@@ -52,15 +52,15 @@ Each field has its own validation class:
 
 All of them implements the **BaseValidation** class, whose **GeneralValidation** method is responsible for validating the special characters and treating the output accordingly.
 
-Checking **?** and **\***:
+Checking **"?"** and **"\*"**:
 
 ![app05](/docs/app05.JPG)
 
-Checking **-**:
+Checking **"-"**:
 
 ![app06](/docs/app06.JPG)
 
-Checking **,**:
+Checking **","**:
 
 ![app07](/docs/app07.JPG)
 
