@@ -77,3 +77,36 @@ And a negative output will be like this:
 ![app10](/docs/app10.JPG)
 
 ### Testing the app
+
+The xUnit project contains this structure:
+
+![test01](/docs/test01.JPG)
+
+The **TheoryTest.cs** will test multiple entries and expect for specific warnings to return. For example:
+
+![test02](/docs/test02.JPG)
+
+**LineTest** method will wait for the warning containing **"000"** because it will test the number of fields validation.  
+The **GetOutput** method is the one responsible for checking the desired output:
+
+![test03](/docs/test03.JPG)
+
+The **FactTest.cs** will test for positive results by sending fixed values and expecting all validations to be flawless:
+
+![test04](/docs/test04.JPG)
+
+The Visual Studio 2019's Test Manager will show the unit tests this way after running successfully:
+
+![test05](/docs/test05.JPG)
+
+You can see the the output of any unit test, both **Fact** or **Theory**:
+
+![test06](/docs/test06.JPG)
+
+This is an example of a **Fact** after a successful execution:
+
+![test07](/docs/test07.JPG)
+
+And this one is a **Theory** example with its desired warning:
+
+![test08](/docs/test08.JPG)
