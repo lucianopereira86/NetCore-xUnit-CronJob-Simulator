@@ -1,0 +1,10 @@
+C:\Users\luxcl\Desktop\Github\Projetos\HireSpaceApp\Dev\HireSpaceApp\bin\Debug\netcoreapp2.2\HireSpaceApp.deps.json
+C:\Users\luxcl\Desktop\Github\Projetos\HireSpaceApp\Dev\HireSpaceApp\bin\Debug\netcoreapp2.2\HireSpaceApp.runtimeconfig.json
+C:\Users\luxcl\Desktop\Github\Projetos\HireSpaceApp\Dev\HireSpaceApp\bin\Debug\netcoreapp2.2\HireSpaceApp.runtimeconfig.dev.json
+C:\Users\luxcl\Desktop\Github\Projetos\HireSpaceApp\Dev\HireSpaceApp\bin\Debug\netcoreapp2.2\HireSpaceApp.dll
+C:\Users\luxcl\Desktop\Github\Projetos\HireSpaceApp\Dev\HireSpaceApp\bin\Debug\netcoreapp2.2\HireSpaceApp.pdb
+C:\Users\luxcl\Desktop\Github\Projetos\HireSpaceApp\Dev\HireSpaceApp\obj\Debug\netcoreapp2.2\HireSpaceApp.csprojAssemblyReference.cache
+C:\Users\luxcl\Desktop\Github\Projetos\HireSpaceApp\Dev\HireSpaceApp\obj\Debug\netcoreapp2.2\HireSpaceApp.AssemblyInfoInputs.cache
+C:\Users\luxcl\Desktop\Github\Projetos\HireSpaceApp\Dev\HireSpaceApp\obj\Debug\netcoreapp2.2\HireSpaceApp.AssemblyInfo.cs
+C:\Users\luxcl\Desktop\Github\Projetos\HireSpaceApp\Dev\HireSpaceApp\obj\Debug\netcoreapp2.2\HireSpaceApp.dll
+C:\Users\luxcl\Desktop\Github\Projetos\HireSpaceApp\Dev\HireSpaceApp\obj\Debug\netcoreapp2.2\HireSpaceApp.pdb
