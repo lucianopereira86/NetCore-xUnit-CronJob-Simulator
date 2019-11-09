@@ -38,7 +38,7 @@ The console application contains this structure:
 
 ![app01](/docs/app01.JPG)
 
-Inside **Program.cs** the **CronJob.cs** will be instatiated after the user enter the cron string to keep the console running indefinetely.
+Inside **Program.cs**, the **CronJob** class will be instatiated after the user enter the cron string:
 
 ![app02](/docs/app02.JPG)
 
