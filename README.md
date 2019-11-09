@@ -86,8 +86,8 @@ The **TheoryTest.cs** will test multiple entries and expect for specific warning
 
 ![test02](/docs/test02.JPG)
 
-**LineTest** method will wait for the warning containing **"000"** because it will test the number of fields validation.  
 **Each warning has its own error code to be identified during unit tests.**  
+**LineTest** method will wait for the warning containing **"000"** because it belongs to a validation inside **Cronjob.cs**.  
 The **GetOutput** method is the one responsible for checking the desired output:
 
 ![test03](/docs/test03.JPG)
