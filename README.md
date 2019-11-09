@@ -28,9 +28,9 @@ After running the app, it will be required for the user to enter a cron string c
 ### Tips
 
 **Day of week** is the only field in which you must enter characters instead of numbers. Its options are: _SUN, MON, TUE, WED, THU, FRI and SAT_.  
-The characters **?** and **\*** will display all the fields' values.  
-The character **-** is a range between two values. For example, _2-5_ will display: _2 3 4 5_.  
-The character **,** can be used between multiple entries from any field to bring their respective values to output. For example: _SUN,WED,FRI_ would display: _0 3 5_.
+The characters **"?"** and **"\*"** will display all the fields' values.  
+The character **"-"** is a range between two values. For example, _2-5_ will display: _2 3 4 5_.  
+The character **","** can be used between multiple entries from any field to bring their respective values to output. For example: _SUN,WED,FRI_ would display: _0 3 5_.
 
 ### Running the app
 
