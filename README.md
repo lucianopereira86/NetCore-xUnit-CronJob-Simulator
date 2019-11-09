@@ -42,7 +42,7 @@ Inside **Program.cs**, the **CronJob** class will be instatiated after the user 
 
 ![app02](/docs/app02.JPG)
 
-The **Cronjob's CheckLine** method is responsible for check the user's input. The first validation happens in the amount of fields required. Then it loops for each field and receive inner validations from the **GetValue** method:
+The **Cronjob's CheckLine** method is responsible for checking the user's input. The first validation occurs at the number of required fields. Then each field receives inner validations from the **GetValue** method:
 
 ![app03](/docs/app03.JPG)
 
