@@ -12,7 +12,7 @@ namespace CronJob.App
         private static void StartCronJob()
         {
             CronJob cronJob = new CronJob();
-            Console.WriteLine($"\nWrite a cron string:");
+            Console.WriteLine($"\nEnter a cron string:");
             string line = Console.ReadLine();
             cronJob.CheckLine(line);
             StartCronJob();

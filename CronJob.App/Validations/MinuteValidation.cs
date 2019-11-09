@@ -2,36 +2,28 @@
 
 namespace CronJob.App.Validations
 {
-    public class MinuteValidation
+    public class MinuteValidation: BaseValidation
     {
         public string GetMinute(string field)
         {
             try
             {
-                string value = "";
-
-                if (field.Equals("*"))
-                {
-                    var minutes = new int[60];
-                    for (int m = 1; m <= 60; m++)
-                        minutes[m - 1] = m;
-                    value = string.Join(' ', minutes);
-                }
-                else
-                {
-                    int minute = Convert.ToInt32(field);
-                    if (minute < 1 || minute > 60)
-                    {
-                        return "WARN-002: Field 'minute' must be from 1 to 60";
-                    }
-                    value = minute.ToString();
-                }
-                return value;
+                return GeneralValidation("minute", field, 1, 60, () => callback(field));
             }
             catch (Exception)
             {
-                return "WARN-001: Field 'minute' is invalid";
+                return "WARN-006: Field 'minute' is invalid";
             }
+        }
+
+        private string callback(string field)
+        {
+            int minute = Convert.ToInt32(field);
+            if (minute < 1 || minute > 60)
+            {
+                return "WARN-007: Field 'minute' must be from 1 to 60";
+            }
+            return minute.ToString();
         }
     }
 }

@@ -10,13 +10,14 @@ namespace CronJob.App
         
         public List<string> CheckLine(string line)
         {
-            List<string> warns = new List<string>();
+            Console.WriteLine("\nResult:\n");
+            List<string> texts = new List<string>();
             string[] fields = line.Trim().Split(" ");
             if (fields.Length != 5)
             {
                 string warn = "WARN-000: The cron string must have 5 fields!";
                 Console.WriteLine(warn);
-                warns.Add(warn);
+                texts.Add(warn);
             }
             else
             {
@@ -27,15 +28,17 @@ namespace CronJob.App
                     if (value.StartsWith("WARN"))
                     {
                         Console.WriteLine(value);
-                        warns.Add(value);
+                        texts.Add(value);
                     } else
                     {
                         string key = keys[p].PadRight(14, ' ');
-                        Console.WriteLine($"{key}{value}");
+                        string text = $"{key}{value}";
+                        Console.WriteLine(text);
+                        texts.Add(text);
                     }
                 }
             }
-            return warns;
+            return texts;
         }
 
         private string GetValue(string field, int position)

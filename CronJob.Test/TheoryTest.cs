@@ -15,69 +15,77 @@ namespace CronJob.Test
             output = o;
         }
 
+        private void GetOutput(string line, string errorCode)
+        {
+            var texts = cronJob.CheckLine(line);
+            string warn = texts.SingleOrDefault(w => w.Contains(errorCode));
+            output.WriteLine(warn);
+        }
+
         [Theory]
         [InlineData("* * * *", "000")]
         [InlineData("* * * * * *", "000")]
         public void LineTest(string line, string errorCode)
         {
-            GetWarns(line, errorCode);
-        }
-
-        private void GetWarns(string line, string errorCode)
-        {
-            var warns = cronJob.CheckLine(line);
-            string warn = warns.SingleOrDefault(w => w.Contains(errorCode));
-            output.WriteLine(warn);
+            GetOutput(line, errorCode);
         }
 
         [Theory]
-        [InlineData("abc", "001")]
-        [InlineData("0", "002")]
-        [InlineData("61", "002")]
+        [InlineData("* * * * ABC-XYZ", "001")]
+        [InlineData("0,100 * * * *", "002")]
+        [InlineData("* * * * ABC,XYZ", "003")]
+        [InlineData("0-100 * * * *", "004")]
+        [InlineData("2-1 * * * *", "005")]
+        public void BaseTest(string line, string errorCode)
+        {
+            GetOutput(line, errorCode);
+        }
+
+        [Theory]
+        [InlineData("abc", "006")]
+        [InlineData("0", "007")]
+        [InlineData("61", "007")]
         public void MinuteTest(string minute, string errorCode)
         {
             string line = $"{minute} 0 0 0 0";
-            GetWarns(line, errorCode);
+            GetOutput(line, errorCode);
         }
 
         [Theory]
-        [InlineData("abc", "003")]
-        [InlineData("24", "004")]
-        [InlineData("0-24", "005")]
-        [InlineData("15-10", "006")]
+        [InlineData("abc", "008")]
+        [InlineData("24", "009")]
         public void HourTest(string hour, string errorCode)
         {
             string line = $"0 {hour} 0 0 0";
-            GetWarns(line, errorCode);
+            GetOutput(line, errorCode);
         }
 
         [Theory]
-        [InlineData("abc", "007")]
-        [InlineData("0", "008")]
-        [InlineData("32", "008")]
+        [InlineData("abc", "010")]
+        [InlineData("0", "011")]
+        [InlineData("32", "011")]
         public void DayOfMonthTest(string day, string errorCode)
         {
             string line = $"0 0 {day} 0 0";
-            GetWarns(line, errorCode);
+            GetOutput(line, errorCode);
         }
 
         [Theory]
-        [InlineData("abc", "009")]
-        [InlineData("0", "010")]
-        [InlineData("13", "010")]
+        [InlineData("abc", "012")]
+        [InlineData("0", "013")]
+        [InlineData("13", "013")]
         public void MonthTest(string month, string errorCode)
         {
             string line = $"0 0 0 {month} 0";
-            GetWarns(line, errorCode);
+            GetOutput(line, errorCode);
         }
 
         [Theory]
-        [InlineData("abc", "011")]
-        [InlineData("MUN,TUE,SAT", "012")]
+        [InlineData("abc", "014")]
         public void DayOfWeekTest(string day, string errorCode)
         {
             string line = $"0 0 0 0 {day}";
-            GetWarns(line, errorCode);
+            GetOutput(line, errorCode);
         }
     }
 }

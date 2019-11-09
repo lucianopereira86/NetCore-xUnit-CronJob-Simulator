@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace CronJob.App.Validations
 {
-    public class DayOfWeekValidation
+    public class DayOfWeekValidation: BaseValidation
     {
         private readonly Dictionary<string, int> daysOfWeek;
 
@@ -21,48 +21,17 @@ namespace CronJob.App.Validations
         }
         public string GetDayOfWeek(string field)
         {
-            string value = "";
-            if (field.Equals("?"))
-            {
-                var days = new int[7];
-                for (int d = 0; d < 7; d++)
-                    days[d] = d;
-                value = string.Join(' ', days);
-            }
-            else
-            {
-                if (field.Contains(","))
-                {
-                    string[] days = field.Split(',');
+            return GeneralValidation("day of week", field, 0, 6, () => callback(field), daysOfWeek);
+        }
 
-                    foreach (string day in days)
-                    {
-                        bool isValid = daysOfWeek.Any(a => a.Key.Equals(day));
-                        if (!isValid)
-                        {
-                            return "WARN-012: Field 'day of week' is invalid";
-                        }
-                    };
-
-                    var positions = new List<int>();
-                    days.ToList().ForEach(day =>
-                    {
-                        int position = daysOfWeek[day];
-                        positions.Add(position);
-                    });
-                    value = string.Join(' ', positions.ToArray());
-                }
-                else
-                {
-                    bool isValid = daysOfWeek.Any(a => a.Key.Equals(field));
-                    if (!isValid)
-                    {
-                        return "WARN-011: Field 'day of week' is invalid";
-                    }
-                    value = daysOfWeek[field].ToString();
-                }
+        private string callback(string field)
+        {
+            bool isValid = daysOfWeek.Any(a => a.Key.Equals(field));
+            if (!isValid)
+            {
+                return "WARN-014: Field 'day of week' is invalid";
             }
-            return value;
+            return daysOfWeek[field].ToString();
         }
     }
 }
